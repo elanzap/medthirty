@@ -1,0 +1,6 @@
+Template Name,Drug Name,Dosage,Interval,Duration,Instructions,Lab Tests
+Fever Treatment,Paracetamol,500mg,Every 6 hours,3 days,Take with water,CBC;Typhoid
+Fever Treatment,Ibuprofen,400mg,Every 8 hours,2 days,Take after meals,Widal Test
+Hypertension Management,Lisinopril,10mg,Once daily,Ongoing,Take in the morning,Lipid Profile
+Diabetes Care,Metformin,500mg,Twice daily,Ongoing,Take with meals,HbA1c;Fasting Glucose
+Respiratory Infection,Azithromycin,250mg,Once daily,5 days,Take on an empty stomach,Chest X-Ray
