@@ -19,6 +19,7 @@ export const DoctorForm: React.FC<DoctorFormProps> = ({
     speciality: initialData?.speciality || '',
     qualification: initialData?.qualification || '',
     registrationNumber: initialData?.registrationNumber || '',
+    consultationFeeType: initialData?.consultationFeeType || 'Pay',
     consultationFee: initialData?.consultationFee || '',
   });
 
@@ -89,6 +90,36 @@ export const DoctorForm: React.FC<DoctorFormProps> = ({
       </div>
 
       <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Consultation Fee Type
+        </label>
+        <div className="flex space-x-4">
+          <label className="inline-flex items-center">
+            <input
+              type="radio"
+              name="consultationFeeType"
+              value="Pay"
+              checked={formData.consultationFeeType === 'Pay'}
+              onChange={() => setFormData({ ...formData, consultationFeeType: 'Pay' })}
+              className="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+            />
+            <span className="ml-2">Pay</span>
+          </label>
+          <label className="inline-flex items-center">
+            <input
+              type="radio"
+              name="consultationFeeType"
+              value="Review"
+              checked={formData.consultationFeeType === 'Review'}
+              onChange={() => setFormData({ ...formData, consultationFeeType: 'Review' })}
+              className="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+            />
+            <span className="ml-2">Review</span>
+          </label>
+        </div>
+      </div>
+
+      <div>
         <label htmlFor="consultationFee" className="block text-sm font-medium text-gray-700">
           Consultation Fee
         </label>
@@ -107,14 +138,20 @@ export const DoctorForm: React.FC<DoctorFormProps> = ({
           <input
             type="number"
             id="consultationFee"
-            value={formData.consultationFee}
+            value={formData.consultationFeeType === 'Review' ? '0' : formData.consultationFee}
             onChange={(e) => setFormData({ ...formData, consultationFee: e.target.value })}
             className="mt-1 block w-full pl-7 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
             min="0"
             step="0.01"
+            disabled={formData.consultationFeeType === 'Review'}
             required
           />
         </div>
+        {formData.consultationFeeType === 'Review' && (
+          <p className="mt-2 text-sm text-gray-500">
+            No consultation fee will be charged for review
+          </p>
+        )}
       </div>
 
       <div className="flex justify-end space-x-3">

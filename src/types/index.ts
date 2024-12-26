@@ -66,6 +66,7 @@ export interface Doctor {
   speciality: string;
   qualification: string;
   registrationNumber: string;
+  consultationFeeType: 'Pay' | 'Review';
   consultationFee: number;
 }
 
