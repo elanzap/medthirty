@@ -30,6 +30,11 @@ export interface Prescription {
   email?: string;
   pdfUrl?: string; // New field to store PDF URL
   pdfBlob?: Blob; // New field to store PDF Blob
+  
+  // New doctor details
+  doctorName?: string;
+  doctorConsultationFee?: number;
+  doctorConsultationFeeType?: 'Pay' | 'Review';
 }
 
 export interface VitalSigns {
